@@ -16,7 +16,7 @@ int main(void)
 	int status, size_len;
 	pid_t pid_child;
 	size_t bufsize = BUFSIZ;
-	char buffer, *arguments[] = {NULL, NULL};
+	char *buffer, *arguments[] = {NULL, NULL};
 
 	while(1)
 	{
