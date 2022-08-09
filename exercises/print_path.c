@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void print_path(const char *name)
+void print_path(void)
 { 
 	extern char **environ;
-	char *token, *res;
+	char *token, *res, *token_2;
 	char str[BUFSIZ];
 	int i = 0;
 
@@ -13,15 +13,19 @@ void print_path(const char *name)
 	{
 		strcpy(str, environ[i]);
 		token = strtok(str, "=");
-		if (strcmp(token, name) == 0)
+		if (strcmp(token, "PATH") == 0)
 		{
 			res = strtok(NULL, "=");
 			break;
 		}
 		i++;
 	}
-	
 
-
-	return (NULL);
+	strcpy(str, res);
+	token_2 = strtok(str, ":");
+	while (token != NULL)
+	{
+		printf("%s\n", token);
+		token = strtok(NULL, ":");
+	}
 }
