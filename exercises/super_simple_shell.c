@@ -3,22 +3,22 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <string.h>
 
 /**
  * main - execve example
  *
  * Return: Always 0.
  */
-#define NUM_CHILD 2	
+
 int main(void)
 {
-	int status;
+	int status, size_len;
 	pid_t pid_child;
-	char *buffer;
 	size_t bufsize = BUFSIZ;
-	char *arguments[] = {""};
+	char buffer, *arguments[] = {NULL, NULL};
 
-	for (int i = 0; i < NUM_CHILD; i++)
+	while(1)
 	{
 		pid_child = fork();
 		if (pid_child > 0)
@@ -28,19 +28,22 @@ int main(void)
 		else if (pid_child == 0)
 		{
 			buffer = malloc(bufsize * sizeof(char));
-			if(buffer == NULL)
+			if (buffer == NULL)
 			{
 				perror("Unable to allocate buffer");
 				exit(1);
 			}
 			printf("#cisfun$ ");
-			getline(&buffer,&bufsize,stdin);
-			exit(execve(buffer, arguments, NULL));
+			getline(&buffer, &bufsize, stdin);
+			size_len = strlen(buffer);
+			buffer[size_len - 1] = '\0';
+			arguments[0] = buffer;
+			exit(execve(arguments[0], arguments, NULL));
 			perror("Error:");
 		} else
 		{
 			perror("Error:");
-        		return (1);
+			return (1);
 		}
 	}
 
