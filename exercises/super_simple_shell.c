@@ -18,7 +18,7 @@ int main(void)
 	size_t bufsize = BUFSIZ;
 	char *buffer, *arguments[] = {NULL, NULL};
 
-	while(1)
+	while (1)
 	{
 		pid_child = fork();
 		if (pid_child > 0)
@@ -33,7 +33,7 @@ int main(void)
 				perror("Unable to allocate buffer");
 				exit(1);
 			}
-			printf("#cisfun$ ");
+			write(1, "#cisfun$ ", 10);
 			getline(&buffer, &bufsize, stdin);
 			size_len = strlen(buffer);
 			buffer[size_len - 1] = '\0';

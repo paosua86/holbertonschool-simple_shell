@@ -3,7 +3,7 @@
 #include <string.h>
 
 void print_path(void)
-{ 
+{
 	extern char **environ;
 	char *token, *res, *token_2;
 	char str[BUFSIZ];
