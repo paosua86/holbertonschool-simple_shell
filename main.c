@@ -12,13 +12,12 @@ int main(void)
 	pid_t pid_child;
 	size_t bufsize = BUFSIZ;
 	char *buffer, *arguments[] = {NULL, NULL};
-	struct stat st; 
+	struct stat st;
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
-		{
-			
+		if (!isatty(STDIN_FILENO))
+		{	
 			buffer = malloc(bufsize * sizeof(char));
 			if (buffer == NULL)
 			{
