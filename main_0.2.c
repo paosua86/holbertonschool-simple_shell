@@ -8,10 +8,11 @@
 
 int main(void)
 {
-	int status, size_len;
+	int status, size_len, i;
 	pid_t pid_child;
 	size_t bufsize = BUFSIZ;
-	char *buffer, *arguments[] = {NULL, NULL};
+	char *token, *buffer, *arguments[10] = {NULL}; 
+	char str[BUFSIZ];
 	struct stat st;
 
 	while (1)
@@ -24,13 +25,21 @@ int main(void)
 				perror("Unable to allocate buffer");
 				exit(1);
 			}
-			getline(&buffer, &bufsize, stdin);	
+			getline(&buffer, &bufsize, stdin);
 			size_len = strlen(buffer);
 			buffer[size_len - 1] = '\0';
-
-			if (stat(buffer, &st) == 0)
+			strcpy(str, buffer);
+			token = strtok(str, " ");
+			if (stat(token, &st) == 0)
 			{
-				arguments[0] = buffer;
+				arguments[0] = token;
+				i = 1;
+				while(token != NULL)
+				{
+					token = strtok(NULL, " ");
+					arguments[i] = token;
+					i++;
+				}
 				exit(execve(arguments[0], arguments, NULL));
 				perror("Error:");
 			}
@@ -58,10 +67,18 @@ int main(void)
 			
 			size_len = strlen(buffer);
 			buffer[size_len - 1] = '\0';
-
-			if (stat(buffer, &st) == 0) 
+			strcpy(str, buffer);
+			token = strtok(str, " ");
+			if (stat(token, &st) == 0) 
 			{
-				arguments[0] = buffer;
+				arguments[0] = token;
+				i = 1;
+				while(token != NULL) 
+				{
+      					token = strtok(NULL, " ");
+					arguments[i] = token;
+					i++;
+				}
 				exit(execve(arguments[0], arguments, NULL));
 				perror("Error:");
 			}

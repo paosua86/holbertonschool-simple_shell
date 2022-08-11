@@ -2,7 +2,7 @@
 
 int command_line_to_av(char *str);
 
-int main()
+int main(void)
 {
 	char str[] = "hello paola, hello juan";
 	command_line_to_av(str);
