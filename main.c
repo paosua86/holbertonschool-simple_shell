@@ -8,17 +8,21 @@
 
 int main(void)
 {
-	char *buffer = NULL, **arguments;
+	char *buffer, **arguments;
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "#cisfun$ ", 10);
+		do {
+			buffer = NULL;
 
-		buffer = read_prompt(buffer);
-		arguments = split_buffer(buffer);
-		check_stat(arguments);
-		create_child(arguments);
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "#cisfun$ ", 10);
+
+			buffer = read_prompt(buffer);
+			arguments = split_buffer(buffer);
+			check_stat(arguments);
+			create_child(arguments);
+		} while (buffer != NULL);
 
 		free(buffer);
 		free(arguments);
