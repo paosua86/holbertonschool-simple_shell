@@ -10,10 +10,9 @@
 #include <sys/stat.h>
 #include <string.h>
 
-
-
-
-
-
+char *read_prompt(char *buffer);
+void check_stat(char **arguments);
+char **split_buffer(char *buffer);
+void create_child(char **arguments);
 
 #endif /* #ifndef HEADER_FILE */
