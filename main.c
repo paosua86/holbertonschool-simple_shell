@@ -8,28 +8,29 @@
 
 int main(void)
 {
-	char *buffer, **arguments;
+	char *buffer = NULL, **arguments = NULL;
 
-	while (1)
-	{
-		do {
-			buffer = NULL;
+	do {
+		buffer = NULL;
 
-			if (isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "#cisfun$ ", 10);
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "#cisfun$ ", 10);
 
-			buffer = read_prompt(buffer);
-			arguments = split_buffer(buffer);
-			check_stat(arguments);
-			create_child(arguments);
-		} while (buffer != NULL);
+		buffer = read_prompt(buffer);
+
+		if (strcmp(buffer, "exit") == 0)
+		{
+			free(buffer);
+			exit(EXIT_SUCCESS);
+		}
 
 		free(buffer);
+		arguments = split_buffer(buffer);
+		check_stat(arguments);
+		create_child(arguments);
 		free(arguments);
+	} while (buffer != NULL);
 
-		if (!isatty(STDIN_FILENO))
-			break;
-	}
 
 	return (EXIT_SUCCESS);
 }
