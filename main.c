@@ -24,8 +24,8 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 
-		free(buffer);
 		arguments = split_buffer(buffer);
+		free(buffer);
 		check_stat(arguments);
 		create_child(arguments);
 		free(arguments);
