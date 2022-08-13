@@ -8,7 +8,9 @@
 
 int main(void)
 {
-	char *buffer = NULL, **arguments = NULL;
+	char *buffer = NULL, *arguments[10] = {NULL};
+	int i, buff_len = 10;
+	char *token, str[BUFSIZ];
 
 	do {
 		buffer = NULL;
@@ -24,17 +26,25 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 
-		arguments = split_buffer(buffer);
+		//arguments = split_buffer(buffer)	
+		strcpy(str, buffer);
+		token = strtok(str, " ");
+
+		if (token == NULL)
+			exit(0);
+
+		arguments[0] = token;
+		i = 1;
+		while (token != NULL)
+		{
+			token = strtok(NULL, " ");
+			arguments[i] = token;
+			i++;
+		}
 		free(buffer);
 		check_stat(arguments);
 		create_child(arguments);
-		free(arguments);
-
-		//if (!isatty(STDIN_FILENO))
-		//	break;
-
+		//free(arguments);
 	} while (buffer != NULL);
-
-
 	return (EXIT_SUCCESS);
 }
