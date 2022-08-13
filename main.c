@@ -29,6 +29,7 @@ int main(void)
 		check_stat(arguments);
 		create_child(arguments);
 		free(arguments);
+
 	} while (buffer != NULL);
 
 
