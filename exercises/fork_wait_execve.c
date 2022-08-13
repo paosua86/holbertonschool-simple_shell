@@ -15,7 +15,7 @@ int main(void)
 {
 	int status;
 	pid_t pid_child;
-	char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
+	char *argv[] = {"ls", "-l", "/usr/", NULL};
 
 	for (int i = 0; i < NUM_CHILD; i++)
 	{
@@ -26,8 +26,8 @@ int main(void)
 		}
 		else if (pid_child == 0)
 		{
-			sleep(4);
-			exit(execve(argv[0], argv, NULL));
+			sleep(2);
+			exit(execve("/bin/ls", argv, NULL));
 			perror("Error:");
 		} else
 		{

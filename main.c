@@ -9,7 +9,7 @@
 int main(void)
 {
 	char *buffer = NULL, *arguments[10] = {NULL};
-	int i, buff_len = 10;
+	int i;
 	char *token, str[BUFSIZ];
 
 	do {
@@ -26,7 +26,7 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 
-		//arguments = split_buffer(buffer)	
+		/*arguments = split_buffer(buffer);*/
 		strcpy(str, buffer);
 		token = strtok(str, " ");
 
@@ -44,7 +44,7 @@ int main(void)
 		free(buffer);
 		check_stat(arguments);
 		create_child(arguments);
-		//free(arguments);
+		/*free(arguments);*/
 	} while (buffer != NULL);
 	return (EXIT_SUCCESS);
 }
