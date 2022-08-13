@@ -30,6 +30,9 @@ int main(void)
 		create_child(arguments);
 		free(arguments);
 
+		//if (!isatty(STDIN_FILENO))
+		//	break;
+
 	} while (buffer != NULL);
 
 
