@@ -10,6 +10,7 @@ int main(void)
 {
 	char *buffer = NULL, *arguments[10] = {NULL};
 	int i;
+	void (*ptr)(void);
 	char *token, str[BUFSIZ];
 
 	do {
@@ -20,12 +21,13 @@ int main(void)
 
 		buffer = read_prompt(buffer);
 
-		if (strcmp(buffer, "exit") == 0)
-		{
-			free(buffer);
-			exit(EXIT_SUCCESS);
-		}
+		ptr = get_built_in(buffer);
 
+		if (ptr != NULL)
+		{
+			ptr();
+			continue;
+		}
 		/*arguments = split_buffer(buffer);*/
 		strcpy(str, buffer);
 		token = strtok(str, " ");
