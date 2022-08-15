@@ -22,5 +22,9 @@ void (*get_built_in(char *s))(void)
 	while (func[i].format != NULL && strcmp(func[i].format, s) != 0)
 		i++;
 
+	if (strcmp(s, "exit") == 0)
+		free(s);
+
+
 	return (func[i].f);
 }

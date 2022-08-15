@@ -20,11 +20,11 @@ int main(void)
 			write(STDOUT_FILENO, "#cisfun$ ", 10);
 
 		buffer = read_prompt(buffer);
-
 		ptr = get_built_in(buffer);
-
 		if (ptr != NULL)
 		{
+			//if (strcmp(buffer, "exit") == 0)
+			//	free(buffer);
 			ptr();
 			continue;
 		}
@@ -46,7 +46,6 @@ int main(void)
 		free(buffer);
 		check_stat(arguments);
 		create_child(arguments);
-		/*free(arguments);*/
 	} while (buffer != NULL);
 	return (EXIT_SUCCESS);
 }
