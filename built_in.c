@@ -3,7 +3,7 @@
 
 void func_exit(void)
 {
-	exit(EXIT_SUCCESS);
+	exit(2);
 }
 
 void func_env(void)
