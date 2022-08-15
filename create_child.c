@@ -13,7 +13,7 @@ void create_child(char **arguments)
 	else if (pid_child == 0)
 	{
 		exit(execve(arguments[0], arguments, NULL));
-	} 
+	}
 	else
 	{
 		perror("Error:");
