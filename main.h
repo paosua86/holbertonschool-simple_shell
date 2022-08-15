@@ -17,7 +17,7 @@ typedef struct formats
 } op_t;
 
 char *read_prompt(char *buffer);
-void check_stat(char **arguments);
+int check_stat(char **arguments);
 char **split_buffer(char *buffer);
 void create_child(char **arguments);
 void (*get_built_in(char *s))(void);
