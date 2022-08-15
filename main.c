@@ -43,7 +43,7 @@ int main(void)
 		}
 		free(buffer);
 		checkstat = check_stat(arguments);
-		if (checkstat == 0);
+		if (checkstat == 0)
 			create_child(arguments);
 	} while (buffer != NULL);
 	return (EXIT_SUCCESS);
