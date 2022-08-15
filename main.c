@@ -31,7 +31,10 @@ int main(void)
 		token = strtok(str, " ");
 
 		if (token == NULL)
+		{
+			free(buffer);
 			exit(0);
+		}
 
 		arguments[0] = token;
 		i = 1;

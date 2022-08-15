@@ -5,6 +5,9 @@ int check_stat(char **arguments)
 	struct stat st;
 	int res = 0;
 
+	if (arguments == NULL)
+			exit(0);
+
 	if (stat(arguments[0], &st) != 0)
 	{
 		res = 1;
