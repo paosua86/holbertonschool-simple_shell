@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * func_env - gets the environ variable
+ * Return: 0
+ */
+
 
 void func_env(void)
 {
