@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * read_prompt - gets the command in buffer
+ * @buffer: space for storing
+ * Return: buffer with all the command without \n
+ */
 
 char *read_prompt(char *buffer)
 {
@@ -10,7 +15,7 @@ char *read_prompt(char *buffer)
 	{
 		free(buffer);
 		exit(0);
-	}	
+	}
 
 	size_len = strlen(buffer);
 	buffer[size_len - 1] = '\0';
