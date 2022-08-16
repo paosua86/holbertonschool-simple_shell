@@ -25,7 +25,6 @@ int main(void)
 		if (ptr != NULL)
 		{
 			ptr();
-			continue;
 		}
 		/*arguments = split_buffer(buffer);*/
 		strcpy(str, buffer);
