@@ -21,7 +21,7 @@ int main(void)
 
 		buffer = read_prompt(buffer);   /* first malloc with getline */
 		EXIT(buffer, status);
-		ptr = get_built_in(buffer); 
+		ptr = get_built_in(buffer);
 		if (ptr != NULL)
 		{
 			ptr();  /* executes the function */

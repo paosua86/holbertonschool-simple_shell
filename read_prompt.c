@@ -9,7 +9,7 @@ char *read_prompt(char *buffer)
 	if (getline(&buffer, &bufsize, stdin) == EOF)
 	{
 		free(buffer);
-		exit(EXIT_SUCCESS);
+		exit(0);
 	}	
 
 	size_len = strlen(buffer);
