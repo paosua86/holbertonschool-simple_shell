@@ -1,10 +1,9 @@
 #include "main.h"
+
 /**
- * get_op_func - Selects the correct function to perform
+ * get_bult_in - Selects the correct function to perform
  * the format asked by the user.
- *
  * @s: The format passed as argument.
- *
  * Return: A pointer to the function corresponding
  * to the format given as a parameter.
  */
