@@ -24,11 +24,10 @@ int main(void)
 		ptr = get_built_in(buffer); 
 		if (ptr != NULL)
 		{
-			ptr();
+			ptr();  /* executes the function */
 		}
-		/*arguments = split_buffer(buffer);*/
 		strcpy(str, buffer);
-		token = strtok(str, " ");
+		token = strtok(str, " "); /* just the first word */
 
 		if (token == NULL)
 		{
@@ -40,13 +39,12 @@ int main(void)
 		i = 1;
 		while (token != NULL)
 		{
-			token = strtok(NULL, " ");
+			token = strtok(NULL, " "); /* the rest of the words until we don't have more */
 			arguments[i] = token;
 			i++;
 		}
 		free(buffer);
-		checkstat = check_stat(arguments);
-		try_path(arguments);
+		checkstat = check_stat(arguments); 
 		if (checkstat == 0)
 			status = create_child(arguments);
 	} while (buffer != NULL);

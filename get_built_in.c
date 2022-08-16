@@ -12,8 +12,7 @@
 void (*get_built_in(char *s))(void)
 {
 	op_t func[] = {
-		/*{"exit", func_exit},*/
-		{"env", func_env},
+		{"env", func_env}, /* prints the variable of environment */
 		{NULL, NULL},
 	};
 
@@ -22,9 +21,5 @@ void (*get_built_in(char *s))(void)
 	while (func[i].format != NULL && strcmp(func[i].format, s) != 0)
 		i++;
 
-	if (strcmp(s, "exit") == 0)
-		free(s);
-
-
-	return (func[i].f);
+	return (func[i].f);  /* returns a function */
 }

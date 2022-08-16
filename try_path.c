@@ -7,15 +7,15 @@ char *try_path(char **arguments)
 
 	path = print_path();
 	strcpy(str, path);
-	token = strtok(str, ":");
+	token = strtok(str, ":"); /* first time */
 	while (token != NULL)
 	{
 		aux = strdup(token);
 		strcat(aux, "/");
 		strcat(aux, arguments[0]);
-		if (stat(aux, &st) == 0)
+		if (stat(aux, &st) == 0)  /* if it exists */
 			return (aux);
-		token = strtok(NULL, ":");
+		token = strtok(NULL, ":"); /* for the rest */
 	}
 	return (NULL);
 }
