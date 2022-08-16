@@ -16,6 +16,12 @@ typedef struct formats
 	void (*f)(void);
 } op_t;
 
+#define EXIT(BUFFER)\
+do {\
+	if (strcmp(BUFFER, "exit") == 0)\
+		return (EXIT_SUCCESS);\
+} while (0);
+
 char *read_prompt(char *buffer);
 int check_stat(char **arguments);
 char **split_buffer(char *buffer);
