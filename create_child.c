@@ -19,11 +19,11 @@ int create_child(char **arguments)
 		if (path == NULL)
 		{
 			free(path);
-			exit(execve(arguments[0], arguments, environ));
+			exit(execve(arguments[0], arguments, NULL));
 		}
 		else
 		{
-			exit(execve(path, arguments, environ));
+			exit(execve(path, arguments, NULL));
 		}
 	}
 	else
