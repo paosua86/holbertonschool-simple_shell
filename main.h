@@ -19,7 +19,10 @@ typedef struct formats
 #define EXIT(BUFFER)\
 do {\
 	if (strcmp(BUFFER, "exit") == 0)\
+	{\
+		free(BUFFER);\
 		return (EXIT_SUCCESS);\
+	}\
 } while (0);
 
 char *read_prompt(char *buffer);
