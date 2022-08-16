@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * print_path - gets PATH from environ variable
+ * Return: the directory contained in environ
+ */
+
 char *print_path(void)
 {
 	extern char **environ;
