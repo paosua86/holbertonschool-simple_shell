@@ -12,7 +12,7 @@
 void (*get_built_in(char *s))(void)
 {
 	op_t func[] = {
-		{"exit", func_exit},
+		/*{"exit", func_exit},*/
 		{"env", func_env},
 		{NULL, NULL},
 	};
