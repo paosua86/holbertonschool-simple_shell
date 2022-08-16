@@ -25,6 +25,7 @@ char *try_path(char **arguments)
 		}
 		token = strtok(NULL, ":");
 	}
+	free(aux);
 	free(path);
 	return (NULL);
 }
