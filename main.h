@@ -16,12 +16,12 @@ typedef struct formats
 	void (*f)(void);
 } op_t;
 
-#define EXIT(BUFFER)\
+#define EXIT(BUFFER, STATUS)\
 do {\
 	if (strcmp(BUFFER, "exit") == 0)\
 	{\
 		free(BUFFER);\
-		break;\
+		return (STATUS);\
 	}\
 } while (0);
 
