@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- * main - execve example
- *
+ * main - execute the command given by user
  * Return: Always 0.
  */
 
@@ -15,10 +14,8 @@ int main(void)
 
 	do {
 		buffer = NULL;
-
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "#cisfun$ ", 10);
-
 		buffer = read_prompt(buffer);   /* first malloc with getline */
 		EXIT(buffer, status);
 		ptr = get_built_in(buffer);
@@ -34,12 +31,11 @@ int main(void)
 			free(buffer);
 			exit(0);
 		}
-
 		arguments[0] = token;
 		i = 1;
 		while (token != NULL)
 		{
-			token = strtok(NULL, " "); /* the rest of the words until we don't have more */
+			token = strtok(NULL, " "); /* rest of words */
 			arguments[i] = token;
 			i++;
 		}
