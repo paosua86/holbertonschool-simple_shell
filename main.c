@@ -9,7 +9,7 @@
 int main(void)
 {
 	char *buffer = NULL, *arguments[10] = {NULL};
-	int i, checkstat;	
+	int i, checkstat, status;	
 	void (*ptr)(void);
 	char *token, str[BUFSIZ];
 
@@ -20,7 +20,7 @@ int main(void)
 			write(STDOUT_FILENO, "#cisfun$ ", 10);
 
 		buffer = read_prompt(buffer);   /* first malloc with getline */
-		/*EXIT(buffer);*/
+		EXIT(buffer);
 		ptr = get_built_in(buffer); 
 		if (ptr != NULL)
 		{
@@ -47,7 +47,7 @@ int main(void)
 		free(buffer);
 		checkstat = check_stat(arguments);
 		if (checkstat == 0)
-			create_child(arguments);
+			status = create_child(arguments);
 	} while (buffer != NULL);
-	return (EXIT_SUCCESS);
+	return (status);
 }

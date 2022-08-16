@@ -1,6 +1,6 @@
 #include "main.h"
 
-void create_child(char **arguments)
+int create_child(char **arguments)
 {
 	pid_t pid_child;
 	int status;
@@ -19,5 +19,6 @@ void create_child(char **arguments)
 		perror("Error:");
 		exit(1);
 	}
+	return (status);
 }
 

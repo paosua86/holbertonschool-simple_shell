@@ -21,14 +21,14 @@ do {\
 	if (strcmp(BUFFER, "exit") == 0)\
 	{\
 		free(BUFFER);\
-		exit (EXIT_FAILURE);\
+		break;\
 	}\
 } while (0);
 
 char *read_prompt(char *buffer);
 int check_stat(char **arguments);
 char **split_buffer(char *buffer);
-void create_child(char **arguments);
+int create_child(char **arguments);
 void (*get_built_in(char *s))(void);
 void func_exit(void);
 void func_env(void);
