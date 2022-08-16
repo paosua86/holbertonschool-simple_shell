@@ -21,7 +21,7 @@ do {\
 	if (strcmp(BUFFER, "exit") == 0)\
 	{\
 		free(BUFFER);\
-		return (STATUS);\
+		return (WEXITSTATUS(STATUS));\
 	}\
 } while (0);
 

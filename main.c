@@ -49,5 +49,5 @@ int main(void)
 		if (checkstat == 0)
 			status = create_child(arguments);
 	} while (buffer != NULL);
-	return (status);
+	return (WEXITSTATUS(status));
 }

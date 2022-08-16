@@ -3,7 +3,7 @@
 int create_child(char **arguments)
 {
 	pid_t pid_child;
-	int status;
+	int status = 0;
 
 	pid_child = fork();
 	if (pid_child > 0)
