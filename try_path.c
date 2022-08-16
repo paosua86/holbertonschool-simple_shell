@@ -5,7 +5,7 @@ char *try_path(char **arguments)
 	char *aux = NULL, *path = NULL, *token = NULL, str[BUFSIZ] = "";
 	struct stat st;
 
-	aux = malloc(sizeof(char) * 1024);
+	aux = calloc(1024, sizeof(char));
 
 	if (aux == NULL)
 		return (NULL);

@@ -7,7 +7,7 @@ char *print_path(void)
 	char str[BUFSIZ] = "";
 	int i = 0;
 
-	res = malloc(sizeof(char) * 1024);
+	res = calloc(1024, sizeof(char));
 
 	if (res == NULL)
 		return (NULL);
