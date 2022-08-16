@@ -32,5 +32,7 @@ int create_child(char **arguments);
 void (*get_built_in(char *s))(void);
 void func_exit(void);
 void func_env(void);
+char *print_path(void);
+char *try_path(char **arguments);
 
 #endif /* #ifndef HEADER_FILE */
