@@ -20,7 +20,7 @@ int main(void)
 			write(STDOUT_FILENO, "#cisfun$ ", 10);
 
 		buffer = read_prompt(buffer);   /* first malloc with getline */
-		//EXIT(buffer);
+		/*EXIT(buffer);*/
 		ptr = get_built_in(buffer); 
 		if (ptr != NULL)
 		{
