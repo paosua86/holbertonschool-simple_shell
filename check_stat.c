@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * check_stat - checks if the arguments exist
+ * @arguments: doble pointer to arguments to be checked
+ * Return: number 0 or 1
+ */
+
+
 int check_stat(char **arguments)
 {
 	struct stat st;
