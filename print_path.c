@@ -1,13 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "main.h"
 
 char *print_path(void)
 {
 	extern char **environ;
-	char *token, *res;
+	char *token = NULL, *res = NULL;
 	char str[BUFSIZ];
 	int i = 0;
+
+	res = malloc(sizeof(char) * 1024);
+
+	if (res == NULL)
+		return (NULL);
 
 	while (environ[i])
 	{
@@ -15,7 +18,7 @@ char *print_path(void)
 		token = strtok(str, "=");
 		if (strcmp(token, "PATH") == 0)
 		{
-			res = strtok(NULL, "=");
+			strcpy(res, strtok(NULL, "\n"));
 			break;
 		}
 		i++;

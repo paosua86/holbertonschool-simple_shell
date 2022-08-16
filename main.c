@@ -9,9 +9,9 @@
 int main(void)
 {
 	char *buffer = NULL, *arguments[10] = {NULL};
-	int i, checkstat, status = 0;
+	int i = 0, checkstat = 0, status = 0;
 	void (*ptr)(void);
-	char *token, str[BUFSIZ];
+	char *token = NULL, str[BUFSIZ];
 
 	do {
 		buffer = NULL;
@@ -35,6 +35,7 @@ int main(void)
 			exit(0);
 		}
 
+
 		arguments[0] = token;
 		i = 1;
 		while (token != NULL)
@@ -44,9 +45,11 @@ int main(void)
 			i++;
 		}
 		free(buffer);
-		checkstat = check_stat(arguments); 
+		checkstat = check_stat(arguments);
 		if (checkstat == 0)
+		{
 			status = create_child(arguments);
+		}
 	} while (buffer != NULL);
 	return (WEXITSTATUS(status));
 }

@@ -16,7 +16,10 @@ int create_child(char **arguments)
 	else if (pid_child == 0)
 	{
 		if (path == NULL)
+		{
+			free(path);
 			exit(execve(arguments[0], arguments, NULL));
+		}
 		else
 		{
 			exit(execve(path, arguments, NULL));
@@ -27,6 +30,7 @@ int create_child(char **arguments)
 		perror("Error:");
 		exit(1);
 	}
+	free(path);
 	return (status);
 }
 

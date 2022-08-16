@@ -18,6 +18,7 @@ int check_stat(char **arguments)
 		if (strcmp(arguments[0], "env") != 0 && path == NULL)
 			write(STDOUT_FILENO, "/shell: No such file or directory\n", 35);
 	}
+	free(path);
 	return (res);
 }
 
