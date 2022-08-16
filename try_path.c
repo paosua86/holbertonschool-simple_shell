@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * try_path - tokenizes the arguments of PATH from environ
+ * @arguments: contains the arguments to be compare
+ * Return: NULL
+ */
+
+
 char *try_path(char **arguments)
 {
 	char *aux = NULL, *path = NULL, *token = NULL, str[BUFSIZ] = "";
