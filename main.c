@@ -35,7 +35,6 @@ int main(void)
 			exit(0);
 		}
 
-
 		arguments[0] = token;
 		i = 1;
 		while (token != NULL)

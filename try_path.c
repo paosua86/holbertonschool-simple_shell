@@ -2,7 +2,7 @@
 
 char *try_path(char **arguments)
 {
-	char *aux = NULL, *path = NULL, *token = NULL, str[BUFSIZ];
+	char *aux = NULL, *path = NULL, *token = NULL, str[BUFSIZ] = "";
 	struct stat st;
 
 	aux = malloc(sizeof(char) * 1024);
