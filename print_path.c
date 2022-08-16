@@ -4,7 +4,7 @@ char *print_path(void)
 {
 	extern char **environ;
 	char *token = NULL, *res = NULL;
-	char str[BUFSIZ];
+	char str[BUFSIZ] = "";
 	int i = 0;
 
 	res = malloc(sizeof(char) * 1024);
