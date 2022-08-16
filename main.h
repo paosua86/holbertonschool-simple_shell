@@ -21,7 +21,7 @@ do {\
 	if (strcmp(BUFFER, "exit") == 0)\
 	{\
 		free(BUFFER);\
-		exit (EXIT_SUCCESS);\
+		exit (EXIT_FAILURE);\
 	}\
 } while (0);
 
