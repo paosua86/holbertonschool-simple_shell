@@ -5,7 +5,7 @@ int create_child(char **arguments)
 	pid_t pid_child;
 	int status = 0;
 	char *path = NULL;
-	/*extern char **environ;*/
+	extern char **environ;
 
 	path = try_path(arguments);
 
@@ -19,11 +19,11 @@ int create_child(char **arguments)
 		if (path == NULL)
 		{
 			free(path);
-			exit(execve(arguments[0], arguments, NULL));
+			exit(execve(arguments[0], arguments, environ));
 		}
 		else
 		{
-			exit(execve(path, arguments, NULL));
+			exit(execve(path, arguments, environ));
 		}
 	}
 	else
