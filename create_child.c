@@ -5,7 +5,6 @@ int create_child(char **arguments)
 	pid_t pid_child;
 	int status = 0;
 	char *path = NULL;
-	extern char **environ;
 
 	path = try_path(arguments);
 

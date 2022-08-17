@@ -10,6 +10,8 @@
 #include <sys/stat.h>
 #include <string.h>
 
+extern char **environ;
+
 typedef struct formats
 {
 	char *format;
