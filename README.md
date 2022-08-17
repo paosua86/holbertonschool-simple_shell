@@ -1,90 +1,85 @@
-![image](https://user-images.githubusercontent.com/106556798/184210844-03fd5274-8018-4764-bbb1-c4f654454d14.png)
-# Proyect simple shell
-## Description:
-In this project what we will do is create a shell.
-> ### What is a shell?
-> Shell is the programming layer that understands and executes the commands that a user enters. On some systems, the shell is called a command interpreter. 
+# <a href="url"><img src="https://img.freepik.com/vector-gratis/ilustracion-objeto-verano-playa_53876-20309.jpg" align="middle" width="100" height="100"></a> simple_shell
 
-## Project Requirements (general)
-* Allowed editors: ```vi```, ```vim```, ```emacs```.
-* All your files will be compiled on Ubuntu 20.04 LTS using ```gcc```, using the options ```-Wall -Werror -Wextra -pedantic -std=gnu89```.
-* All your files should end with a new line.
-* A ```README.md``` file, at the root of the folder of the project is mandatory.
-* Your code should use the ```Betty style```. It will be checked using ```betty-style.pl``` and ```betty-doc.pl```.
-* Your shell should not have any memory leaks.
-* No more than ```5 functions``` per file.
-* All your header files should be include guarded.
-* Use system calls only when you need to (why?).
 
-## MORE info
-> ### Output
-* Unless specified otherwise, your program must have the exact same output as sh ```(/bin/sh)``` as well as the exact same error output.
-* The only difference is when you print an error, the name of the program must be equivalent to your ```argv[0]``` (See below)
-Example of error with sh:
-```
-$ echo "qwerty" | /bin/sh
-/bin/sh: 1: qwerty: not found
-$ echo "qwerty" | /bin/../bin/sh
-/bin/../bin/sh: 1: qwerty: not found
-$
-```
-Same error with your program hsh:
-```
-$ echo "qwerty" | ./hsh
-./hsh: 1: qwerty: not found
-$ echo "qwerty" | ./././hsh
-./././hsh: 1: qwerty: not found
-$
-```
-> ### List of allowed functions and system calls.
+## Table of Contents
+* [Description](#description)
+* [File Structure](#file-structure)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Example of Use](#example-of-use)
+* [Bugs](#bugs)
+* [Authors](#authors)
+* [License](#license)
 
-* ```access (man 2 access)```
-* ```chdir (man 2 chdir)```
-* ```close (man 2 close)```
-* ```closedir (man 3 closedir)```
-* ```execve (man 2 execve)```
-* ```exit (man 3 exit)```
-* ```_exit (man 2 _exit)```
-* ```fflush (man 3 fflush)```
-* ```fork (man 2 fork)```
-* ```free (man 3 free)```
-* ```getcwd (man 3 getcwd)```
-* ```getline (man 3 getline)```
-* ```getpid (man 2 getpid)```
-* ```isatty (man 3 isatty)```
-* ```kill (man 2 kill)```
-* ```malloc (man 3 malloc)```
-* ```open (man 2 open)```
-* ```opendir (man 3 opendir)```
-* ```perror (man 3 perror)```
-* ```read (man 2 read)```
-* ```readdir (man 3 readdir)```
-* ```signal (man 2 signal)```
-* ```stat (__xstat) (man 2 stat)```
-* ```lstat (__lxstat) (man 2 lstat)```
-* ```fstat (__fxstat) (man 2 fstat)```
-* ```strtok (man 3 strtok)```
-* ```wait (man 2 wait)```
-* ```waitpid (man 2 waitpid)```
-* ```wait3 (man 2 wait3)```
-* ```wait4 (man 2 wait4)```
-* ```write (man 2 write)```
+## Description
+simple_shell is a command line interpreter, or shell, in the tradition of the first Unix shell written by Ken Thompson in 1971. This shell is intentionally minimalistic, yet includes the basic functionality of a traditional Unix-like command line user interface.
 
-## Compilation
-Your shell will be compiled this way:
-> gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+Standard functions and system calls employed in simple_shell include:
+   `execve, exit, fork, free, getline, malloc, perror, stat, wait, write.`
 
-___
+## File Structure
+	 * [main.c](main.c) - main function
+	 * [AUTHORS](AUTHORS) - List of contributors to this repository
+	 * [man_1_simple_shell](man_1_simple_shell) - Manual page for the simple_shell
+	 * [main.h](main.h) - program header file
+	 * [read_prompt.c](read_prompti.c) - gets the command into a buffer
+   * [create_child.c](create_child.c) - Do a fork to execute the command
+	 * [check_stat.c](check_stat.c) - checks if the arguments exist
+	 * [get_built_in.c](get_built_in.c) - Selects the correct function to perform
+   * [try_path.c](try_path.c) - tokenizes the arguments of PATH
+	 * [print_path.c](print_path.c) - gets PATH from environ variable
+   * [built_in.c](built_in.c) - gets the environ variable
 
-## Steps to create the simple shell
-1. We create the ```prompt``` (The indicator).
-2. We create an ```infinite loop```.
-3. We make a condition where we set the ```interactive``` and ```non-interactive``` mode, we use the ```satty()``` function.
-4. We use getline to define the ```delimiter character```, which in this case is going to be the ```spaces```.
-5. We split the command, using the ```strtok()``` function. We touch, better said, we divide the command, which in this case is ```separated by spaces```.
-6. We verify if we are working in the shell that we have created.
-7. We execute. We use the PATH and create a ```parent``` and ```child``` process via ```fork```.
 
-<a href = 'https://www.github.com/Crisgrva'> <img width = '32px' align= 'center' src="https://raw.githubusercontent.com/rahulbanerjee26/githubAboutMeGenerator/main/icons/github.svg"/></a> [@Alejandro Caballero](https://github.com/Caballero018) | [@Juan García](https://github.com/JuanGarcia0418)
+## Requirements
 
-<a href = 'https://www.twitter.com/crisgrvc'> <img width = '32px' align= 'center' src="https://raw.githubusercontent.com/rahulbanerjee26/githubAboutMeGenerator/main/icons/twitter.svg"/></a> [@Alejandro](https://twitter.com/Alejand51178128) | [@Juan]()
+
+simple_shell is designed to run in the `Ubuntu 20.04 LTS` linux environment and to be compiled using the GNU compiler collection `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
+
+
+## Installation
+
+
+- Compile: `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
+
+- Run the shell in interactive mode: `./hsh`
+
+- Or run the shell in non-interactive mode: example `echo "pwd" | ./hsh`
+
+
+## Usage
+
+
+The simple_shell is designed to execute commands in a similar manner to sh, however with more limited functionality. The development of this shell is ongoing. The below features will be checked as they become available (see man page for complete information on usage):
+
+
+### Features
+
+
+- [x] uses the PATH
+- [x] implements builtins
+- [x] handles command line arguments
+- [x] uses exit status
+
+
+## Bugs
+
+
+At this time, there are no known bugs.
+
+
+## Authors
+
+
+Juan David Otalora | otalorajuand@gmail.com
+Paola Suarez | paolasuarezb86@gmail.com
+
+
+## License
+
+
+simple_shell is open source and therefore free to download and use without permission.
+
+
+
