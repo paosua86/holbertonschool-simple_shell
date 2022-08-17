@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * create_child - Do a fork to execute the command
+ * @arguments: The array with the command and its arguments
+* Return: The status of the execution of the child.
+  */
+
 int create_child(char **arguments)
 {
 	pid_t pid_child;

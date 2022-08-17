@@ -12,20 +12,27 @@
 
 extern char **environ;
 
+/**
+ * struct formats - Struct formats
+ *
+ * @format: The character that specify the built in.
+ * @f: The built in function that executes certain task.
+ */
+
 typedef struct formats
 {
 	char *format;
 	void (*f)(void);
 } op_t;
 
-#define EXIT(BUFFER, STATUS)\
-do {\
-	if (strcmp(BUFFER, "exit") == 0)\
-	{\
-		free(BUFFER);\
-		return (WEXITSTATUS(STATUS));\
-	}\
-} while (0);
+#define EXIT(BUFFER, STATUS) \
+do { \
+	if (strcmp(BUFFER, "exit") == 0) \
+	{ \
+		free(BUFFER); \
+		exit(WEXITSTATUS(STATUS)); \
+	} \
+} while (0)
 
 char *read_prompt(char *buffer);
 int check_stat(char **arguments);
