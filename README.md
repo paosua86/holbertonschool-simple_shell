@@ -92,4 +92,4 @@ simple_shell is open source and therefore free to download and use without permi
 
 ## Charflow
 
-# <a href="https://ibb.co/d2pq4WG"><img src="https://i.ibb.co/YkdMBRp/charflow-shell2-4-drawio.png" alt="charflow-shell2-4-drawio" border="0" /></a>
+# <a href="https://ibb.co/d2pq4WG"><img src="https://i.ibb.co/YkdMBRp/charflow-shell2-4-drawio.png" alt="charflow-shell2-4-drawio" border="0" align="middle" /></a>
