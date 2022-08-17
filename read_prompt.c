@@ -17,7 +17,7 @@ char *read_prompt(char *buffer)
 		exit(0);
 	}
 
-	size_len = strlen(buffer);
+	size_len = _strlen(buffer);
 	buffer[size_len - 1] = '\0';
 
 	return (buffer);

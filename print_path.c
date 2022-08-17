@@ -18,11 +18,11 @@ char *print_path(void)
 
 	while (environ[i])
 	{
-		strcpy(str, environ[i]);
+		_strcpy(str, environ[i]);
 		token = strtok(str, "=");
-		if (strcmp(token, "PATH") == 0)
+		if (_strcmp(token, "PATH") == 0)
 		{
-			strcpy(res, strtok(NULL, "\n"));
+			_strcpy(res, strtok(NULL, "\n"));
 			break;
 		}
 		i++;

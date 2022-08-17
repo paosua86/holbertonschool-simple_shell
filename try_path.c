@@ -18,13 +18,13 @@ char *try_path(char **arguments)
 		return (NULL);
 
 	path = print_path();
-	strcpy(str, path);
+	_strcpy(str, path);
 	token = strtok(str, ":");
 	while (token != NULL)
 	{
-		strcpy(aux, token);
-		strcat(aux, "/");
-		strcat(aux, arguments[0]);
+		_strcpy(aux, token);
+		_strcat(aux, "/");
+		_strcat(aux, arguments[0]);
 		if (stat(aux, &st) == 0)
 		{
 			free(path);
