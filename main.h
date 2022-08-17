@@ -27,7 +27,7 @@ typedef struct formats
 
 #define EXIT(BUFFER, STATUS) \
 do { \
-	if (strcmp(BUFFER, "exit") == 0) \
+	if (_strcmp(BUFFER, "exit") == 0) \
 	{ \
 		free(BUFFER); \
 		exit(WEXITSTATUS(STATUS)); \

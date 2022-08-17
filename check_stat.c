@@ -13,9 +13,6 @@ int check_stat(char **arguments)
 	int res = 0;
 	char *path = NULL;
 
-	if (arguments == NULL)
-		exit(0);
-
 	path = try_path(arguments);
 
 	if (stat(arguments[0], &st) != 0)

@@ -29,7 +29,7 @@ int main(void)
 		if (token == NULL)
 		{
 			free(buffer);
-			exit(0);
+			continue;
 		}
 		arguments[0] = token;
 		i = 1;
