@@ -29,8 +29,10 @@ Standard functions and system calls employed in simple_shell include:
 	* [AUTHORS](AUTHORS) - List of contributors to this repository
 	* [man_1_simple_shell](man_1_simple_shell) - Manual page for the simple_shell
 	* [main.h](main.h) - program header file
+	
 	* [read_prompt.c](read_prompti.c) - gets the command into a buffer
-  * [create_child.c](create_child.c) - Do a fork to execute the command
+  
+	* [create_child.c](create_child.c) - Do a fork to execute the command
 	* [check_stat.c](check_stat.c) - checks if the arguments exist
 	* [get_built_in.c](get_built_in.c) - Selects the correct function to perform
   * [try_path.c](try_path.c) - tokenizes the arguments of PATH
