@@ -24,19 +24,18 @@ Standard functions and system calls employed in simple_shell include:
    `execve, exit, fork, free, getline, malloc, perror, stat, wait, write.`
 
 ## File Structure
-	
-	- [create_child.c](create_child.c) - Do a fork to execute the command
-	-	[main.c](main.c) - main function
-	- [AUTHORS](AUTHORS) - List of contributors to this repository
-	- [man_1_simple_shell](man_1_simple_shell) - Manual page for the simple_shell
-	-	[main.h](main.h) - program header file
-	-	[read_prompt.c](read_prompt.c) - gets the command into a buffer
-  - [create_child.c](create_child.c) - Do a fork to execute the command
-	- [check_stat.c](check_stat.c) - checks if the arguments exist
-	- [get_built_in.c](get_built_in.c) - Selects the correct function to perform
-  - [try_path.c](try_path.c) - tokenizes the arguments of PATH
-	- [print_path.c](print_path.c) - gets PATH from environ variable
-  - [built_in.c](built_in.c) - gets the environ variable
+
+	[main.c](main.c) - main function
+	[AUTHORS](AUTHORS) - List of contributors to this repository
+	[man_1_simple_shell](man_1_simple_shell) - Manual page for the simple_shell
+	[main.h](main.h) - program header file
+	[read_prompt.c](read_prompt.c) - gets the command into a buffer
+	[create_child.c](create_child.c) - Do a fork to execute the command
+	[check_stat.c](check_stat.c) - checks if the arguments exist
+	[get_built_in.c](get_built_in.c) - Selects the correct function to perform
+	[try_path.c](try_path.c) - tokenizes the arguments of PATH
+	[print_path.c](print_path.c) - gets PATH from environ variable
+	[built_in.c](built_in.c) - gets the environ variable
 
 
 ## Requirements
