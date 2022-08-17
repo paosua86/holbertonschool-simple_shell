@@ -23,7 +23,7 @@ int main(void)
 		{
 			ptr();  /* executes the function */
 		}
-		_strcpy(str, buffer);
+		strcpy(str, buffer);
 		token = strtok(str, " "); /* just the first word */
 
 		if (token == NULL)
