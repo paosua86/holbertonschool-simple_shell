@@ -37,7 +37,6 @@ Standard functions and system calls employed in simple_shell include:
 - [try_path.c](try_path.c) - tokenizes the arguments of PATH
 - [print_path.c](print_path.c) - gets PATH from environ variable
 - [built_in.c](built_in.c) - gets the environ variable
-- [string_functions.c](string_functions.c) - functions for strings
 
 
 ## Requirements
